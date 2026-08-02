@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://wordcount.uk.com/sitemap.xml
