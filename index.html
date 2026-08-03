@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colour Picker — Free Online HEX, RGB & HSL Colour Tool</title>
+<meta name="description" content="Free online Colour Picker to pick, convert and copy colours in HEX, RGB, HSL, HSV and CMYK, with instant shades, tints and gradients.">
+<meta name="keywords" content="Colour Picker, online Colour Picker, HEX Colour Picker, RGB Colour Picker, free Colour Picker tool">
+<meta name="author" content="Colour Picker">
+<meta name="publisher" content="Colour Picker">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://colourpicker.uk.com/">
+<meta name="theme-color" content="#5B4FE8">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Colour Picker — Free Online Colour Picker Tool">
+<meta property="og:description" content="Pick, preview and convert colours instantly with the free online Colour Picker. HEX, RGB, HSL, HSV, CMYK, gradients, shades, tints and more.">
+<meta property="og:url" content="https://colourpicker.uk.com/">
+<meta property="og:image" content="assets/images/og-colour-picker.png">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Colour Picker — Free Online Colour Picker Tool">
+<meta name="twitter:description" content="Pick, preview and convert colours instantly with the free online Colour Picker. HEX, RGB, HSL, HSV, CMYK, gradients and more.">
+<meta name="twitter:image" content="assets/images/og-colour-picker.png">
+
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css?v=2">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Colour Picker",
+  "applicationCategory": "DesignApplication",
+  "operatingSystem": "Any",
+  "description": "A free online Colour Picker for choosing, converting and copying colours in HEX, RGB, HSL, HSV and CMYK formats, with shades, tints, tones and gradient generation.",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+}
+</script>
+</head>
+<body>
+
+<div class="scroll-progress" id="scroll-progress"></div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo" aria-label="Colour Picker home">
+      <span class="logo-mark" aria-hidden="true"></span>
+      Colour Picker
+    </a>
+    <nav class="main-nav" id="main-nav" aria-label="Primary">
+      <ul>
+        <li><a href="#top">Home</a></li>
+        <li><a href="#tool">Colour Picker</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-cta">
+      <a href="#tool" class="btn btn-ghost btn-sm">Use Colour Picker</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">100% Free · Runs In Your Browser</span>
+        <h1>The <em>Colour Picker</em> built for people who work in colour</h1>
+        <p>Pick a shade, drag a slider, or lift a colour straight off your screen. This Colour Picker instantly gives you HEX, RGB, HSL, HSV and CMYK, plus shades, tints, tones and ready-to-use gradients.</p>
+        <div class="hero-actions">
+          <a href="#tool" class="btn btn-primary">Use Colour Picker</a>
+          <a href="#features" class="btn btn-ghost">Learn More</a>
+        </div>
+        <div class="hero-meta">
+          <div><strong data-count-to="182400" data-suffix="+">0</strong><span>Colours picked today</span></div>
+          <div><strong data-count-to="6" data-suffix="">0</strong><span>Formats supported</span></div>
+          <div><strong data-count-to="100" data-suffix="%">0</strong><span>Client-side, no uploads</span></div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="ring"></div>
+        <div class="ring ring-2"></div>
+        <div class="hero-chip">
+          <div class="hero-chip-swatch" id="hero-chip-swatch"></div>
+          <code id="hero-chip-code">#5B4FE8</code>
+          <span>Live from the Colour Picker below</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- MAIN TOOL -->
+  <section class="section tool-section" id="tool">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">The Tool</span>
+        <h2>Your fully working Colour Picker</h2>
+        <p>Every control below runs locally in your browser. Pick, type, slide or lift a colour — the Colour Picker keeps every format in sync.</p>
+      </div>
+
+      <div class="tool-shell reveal">
+        <div class="card tool-main">
+          <div class="preview-panel">
+            <div class="preview-fill" id="preview-fill"></div>
+            <div class="preview-contrast">
+              <span class="pill">Best text: <span id="contrast-text">White</span></span>
+              <span class="pill">Contrast <span id="contrast-ratio">4.50 : 1</span></span>
+              <span class="pill" id="contrast-badge">AA Pass</span>
+            </div>
+          </div>
+
+          <div class="picker-row">
+            <input type="color" id="native-color" value="#5B4FE8" aria-label="Native colour picker">
+            <div class="hex-field">
+              <span>#</span>
+              <input type="text" id="hex-input" maxlength="6" value="5B4FE8" aria-label="Editable HEX field">
+            </div>
+            <button class="icon-btn" id="eyedropper-btn" title="Pick colour from screen" aria-label="Pick colour from screen">👁️</button>
+          </div>
+
+          <div class="rgb-fields">
+            <label>R <input type="number" min="0" max="255" id="rgb-r" value="91"></label>
+            <label>G <input type="number" min="0" max="255" id="rgb-g" value="79"></label>
+            <label>B <input type="number" min="0" max="255" id="rgb-b" value="232"></label>
+          </div>
+
+          <div class="slider-group">
+            <div class="slider-row">
+              <div class="slider-label"><span>Red</span><span id="slider-r-val">91</span></div>
+              <input type="range" id="slider-r" min="0" max="255" value="91" aria-label="Red slider">
+            </div>
+            <div class="slider-row">
+              <div class="slider-label"><span>Green</span><span id="slider-g-val">79</span></div>
+              <input type="range" id="slider-g" min="0" max="255" value="79" aria-label="Green slider">
+            </div>
+            <div class="slider-row">
+              <div class="slider-label"><span>Blue</span><span id="slider-b-val">232</span></div>
+              <input type="range" id="slider-b" min="0" max="255" value="232" aria-label="Blue slider">
+            </div>
+            <div class="slider-row">
+              <div class="slider-label"><span>Opacity</span><span id="slider-a-val">100%</span></div>
+              <input type="range" id="slider-a" min="0" max="100" value="100" aria-label="Opacity slider">
+            </div>
+          </div>
+
+          <div class="action-row">
+            <button class="btn btn-primary btn-sm" id="random-btn">🎲 Random Colour</button>
+            <button class="btn btn-ghost btn-sm" id="add-favorite-btn">♥ Save Favourite</button>
+            <button class="btn btn-ghost btn-sm" id="download-btn">⬇ Download PNG</button>
+            <button class="btn btn-ghost btn-sm" id="fullscreen-btn">⤢ Fullscreen Preview</button>
+            <button class="btn btn-ghost btn-sm" id="reset-btn">↺ Reset</button>
+          </div>
+        </div>
+
+        <div class="tool-side">
+          <div class="card side-block">
+            <h3>Copy a format</h3>
+            <div class="side-block-body format-list">
+              <div class="format-row">
+                <div><div class="label">Hex</div><div class="value" id="out-hex">#5B4FE8</div></div>
+                <div class="value-wrap"><button class="icon-btn" data-copy="#out-hex" data-label="HEX" aria-label="Copy HEX">⧉</button></div>
+              </div>
+              <div class="format-row">
+                <div><div class="label">RGB</div><div class="value" id="out-rgb">rgb(91, 79, 232)</div></div>
+                <div class="value-wrap"><button class="icon-btn" data-copy="#out-rgb" data-label="RGB" aria-label="Copy RGB">⧉</button></div>
+              </div>
+              <div class="format-row">
+                <div><div class="label">RGBA</div><div class="value" id="out-rgba">rgba(91, 79, 232, 1)</div></div>
+                <div class="value-wrap"><button class="icon-btn" data-copy="#out-rgba" data-label="RGBA" aria-label="Copy RGBA">⧉</button></div>
+              </div>
+              <div class="format-row">
+                <div><div class="label">HSL</div><div class="value" id="out-hsl">hsl(247, 78%, 61%)</div></div>
+                <div class="value-wrap"><button class="icon-btn" data-copy="#out-hsl" data-label="HSL" aria-label="Copy HSL">⧉</button></div>
+              </div>
+              <div class="format-row">
+                <div><div class="label">HSV</div><div class="value" id="out-hsv">hsv(247, 66%, 91%)</div></div>
+              </div>
+              <div class="format-row">
+                <div><div class="label">CMYK</div><div class="value" id="out-cmyk">cmyk(61%, 66%, 0%, 9%)</div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card side-block">
+            <div class="fav-row" style="padding:18px 20px 0;">
+              <h3 style="padding:0;">Colour history</h3>
+            </div>
+            <div class="side-block-body">
+              <div class="swatch-grid" id="history-grid"></div>
+            </div>
+          </div>
+
+          <div class="card side-block">
+            <div class="fav-row" style="padding:18px 20px 0;">
+              <h3 style="padding:0;">Favourite colours</h3>
+            </div>
+            <div class="side-block-body">
+              <div class="swatch-grid" id="favorites-grid"></div>
+              <p style="font-size:0.78rem;color:var(--ink-faint);margin-top:10px;">Tip: double-click a favourite to remove it. Saved with LocalStorage.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ABOUT -->
+  <section class="section section-alt" id="about">
+    <div class="container about-grid">
+      <div class="about-copy reveal">
+        <span class="eyebrow">About</span>
+        <h2 style="font-family:var(--font-display);font-size:clamp(1.8rem,3vw,2.4rem);font-weight:600;margin-top:14px;">Built for anyone who works with colour</h2>
+        <p>This Colour Picker was built as a fast, private, and fully client-side tool for developers, designers, and anyone who needs an accurate colour value on the spot.</p>
+        <p>Every conversion the Colour Picker performs — HEX, RGB, HSL, HSV, CMYK — happens instantly in your browser, with no server round-trip and no account required.</p>
+        <p>Whether you're matching a brand colour, building a gradient, or checking contrast for accessibility, the Colour Picker is designed to stay out of your way and get you back to work.</p>
+      </div>
+      <div class="about-visual reveal" aria-hidden="true">
+        <div class="ring"></div>
+      </div>
+    </div>
+  </section>
+  <!-- COLOUR INFORMATION -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Live Data</span>
+        <h2>Colour information, updated instantly</h2>
+        <p>Every value below tracks the Colour Picker above in real time — no refresh required.</p>
+      </div>
+      <div class="grid-3 reveal">
+        <div class="feature-card">
+          <div class="feature-icon">#</div>
+          <h3>HEX &amp; RGBA</h3>
+          <p>The two formats most used across CSS, design tools and code editors, kept perfectly in sync by the Colour Picker.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">◐</div>
+          <h3>HSL &amp; HSV</h3>
+          <p>Hue-based formats make it easy to reason about lightness and saturation while using the Colour Picker.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">▦</div>
+          <h3>CMYK Approximation</h3>
+          <p>A print-oriented estimate, useful when the Colour Picker's result needs to travel from screen to paper.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- SHADES -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Shades</span>
+        <h2>Darker shades of your colour</h2>
+        <p>The Colour Picker automatically builds nine darker shades. Click any swatch to load it back into the tool.</p>
+      </div>
+      <div class="scale-strip reveal" id="shades-strip"></div>
+    </div>
+  </section>
+  <!-- TINTS -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Tints</span>
+        <h2>Lighter tints of your colour</h2>
+        <p>Blend toward white with a click. Every tint is generated live by the Colour Picker's colour engine.</p>
+      </div>
+      <div class="scale-strip reveal" id="tints-strip"></div>
+    </div>
+  </section>
+  <!-- TONES -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Tones</span>
+        <h2>Muted tones of your colour</h2>
+        <p>Tones desaturate your pick step by step — handy for backgrounds and secondary UI colours.</p>
+      </div>
+      <div class="scale-strip reveal" id="tones-strip"></div>
+    </div>
+  </section>
+  <!-- GRADIENT -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Gradients</span>
+        <h2>Turn your pick into a gradient</h2>
+        <p>Pair your Colour Picker result with a second colour and copy ready-to-use CSS.</p>
+      </div>
+      <div class="card tool-main reveal" style="max-width:760px;margin:0 auto;">
+        <div class="gradient-preview" id="gradient-preview"></div>
+        <div class="gradient-controls">
+          <button class="btn btn-primary btn-sm" data-gradient-type="linear">Linear</button>
+          <button class="btn btn-ghost btn-sm" data-gradient-type="radial">Radial</button>
+          <label class="hex-field" style="flex:0 0 auto;">
+            <span>2nd</span>
+            <input type="color" id="gradient-second" value="#FF5C7A" style="width:34px;height:34px;">
+          </label>
+          <label style="display:flex;align-items:center;gap:8px;flex:1;min-width:160px;">
+            <span style="font-size:0.82rem;color:var(--ink-faint);">Angle</span>
+            <input type="range" id="gradient-angle" min="0" max="360" value="120">
+          </label>
+        </div>
+        <div class="code-box" id="gradient-code">background: linear-gradient(120deg, #5B4FE8, #FF5C7A);</div>
+        <div class="action-row">
+          <button class="btn btn-ghost btn-sm" data-copy="#gradient-code" data-label="Gradient CSS">Copy CSS</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- POPULAR COLOURS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Popular Colours</span>
+        <h2>Start from a familiar colour</h2>
+        <p>Click any card to load that colour straight into the Colour Picker above.</p>
+      </div>
+      <div class="popular-grid reveal">
+        <div class="popular-card" data-popular-hex="#FFFFFF"><div class="popular-swatch" style="background:#FFFFFF;border-bottom:1px solid var(--border);"></div><div class="popular-label">White <span>#FFFFFF</span></div></div>
+        <div class="popular-card" data-popular-hex="#000000"><div class="popular-swatch" style="background:#000000;"></div><div class="popular-label">Black <span>#000000</span></div></div>
+        <div class="popular-card" data-popular-hex="#E53935"><div class="popular-swatch" style="background:#E53935;"></div><div class="popular-label">Red <span>#E53935</span></div></div>
+        <div class="popular-card" data-popular-hex="#2E7D32"><div class="popular-swatch" style="background:#2E7D32;"></div><div class="popular-label">Green <span>#2E7D32</span></div></div>
+        <div class="popular-card" data-popular-hex="#1565C0"><div class="popular-swatch" style="background:#1565C0;"></div><div class="popular-label">Blue <span>#1565C0</span></div></div>
+        <div class="popular-card" data-popular-hex="#7B1FA2"><div class="popular-swatch" style="background:#7B1FA2;"></div><div class="popular-label">Purple <span>#7B1FA2</span></div></div>
+        <div class="popular-card" data-popular-hex="#F57C00"><div class="popular-swatch" style="background:#F57C00;"></div><div class="popular-label">Orange <span>#F57C00</span></div></div>
+        <div class="popular-card" data-popular-hex="#FBC02D"><div class="popular-swatch" style="background:#FBC02D;"></div><div class="popular-label">Yellow <span>#FBC02D</span></div></div>
+        <div class="popular-card" data-popular-hex="#EC407A"><div class="popular-swatch" style="background:#EC407A;"></div><div class="popular-label">Pink <span>#EC407A</span></div></div>
+        <div class="popular-card" data-popular-hex="#00ACC1"><div class="popular-swatch" style="background:#00ACC1;"></div><div class="popular-label">Cyan <span>#00ACC1</span></div></div>
+        <div class="popular-card" data-popular-hex="#6D4C41"><div class="popular-swatch" style="background:#6D4C41;"></div><div class="popular-label">Brown <span>#6D4C41</span></div></div>
+        <div class="popular-card" data-popular-hex="#757575"><div class="popular-swatch" style="background:#757575;"></div><div class="popular-label">Gray <span>#757575</span></div></div>
+      </div>
+    </div>
+  </section>
+  <!-- COLOUR FORMATS GUIDE -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Formats Guide</span>
+        <h2>Understanding colour formats</h2>
+        <p>A quick reference for the formats the Colour Picker outputs, and when to reach for each one.</p>
+      </div>
+      <div class="grid-3 reveal">
+        <div class="feature-card">
+          <h3>HEX</h3>
+          <p>A six-digit code like #5B4FE8, the most common way the Colour Picker's result is used in CSS, HTML and design software.</p>
+        </div>
+        <div class="feature-card">
+          <h3>RGB &amp; RGBA</h3>
+          <p>Red, green and blue channels from 0–255, with an optional alpha channel. The Colour Picker outputs both automatically.</p>
+        </div>
+        <div class="feature-card">
+          <h3>HSL</h3>
+          <p>Hue, saturation and lightness — often the easiest way to nudge a colour lighter, darker or more muted with the Colour Picker.</p>
+        </div>
+        <div class="feature-card">
+          <h3>HSV</h3>
+          <p>Hue, saturation and value, close to how many colour wheels and paint mixers describe colour, mirrored by the Colour Picker.</p>
+        </div>
+        <div class="feature-card">
+          <h3>CMYK</h3>
+          <p>Cyan, magenta, yellow and key (black), an approximation the Colour Picker calculates for print-facing work.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Choosing a format</h3>
+          <p>For the web, use HEX or RGBA from the Colour Picker; for print layouts, start from the CMYK approximation instead.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- FEATURES -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Features</span>
+        <h2>Everything the Colour Picker can do</h2>
+        <p>A complete toolkit for choosing, converting and reusing colour, all running locally in your browser.</p>
+      </div>
+      <div class="grid-4 reveal">
+        <div class="feature-card"><div class="feature-icon">◉</div><h3>Instant Colour Picker</h3><p>Pick a colour and see every format update immediately.</p></div>
+        <div class="feature-card"><div class="feature-icon">▣</div><h3>Live Preview</h3><p>A large preview panel shows exactly how your colour looks.</p></div>
+        <div class="feature-card"><div class="feature-icon">⧉</div><h3>Copy Values</h3><p>One-click copy for HEX, RGB, HSL and RGBA.</p></div>
+        <div class="feature-card"><div class="feature-icon">▤</div><h3>Responsive Design</h3><p>The Colour Picker works smoothly on phone, tablet and desktop.</p></div>
+        <div class="feature-card"><div class="feature-icon">🎲</div><h3>Random Colour</h3><p>Generate a fresh random colour with a single click.</p></div>
+        <div class="feature-card"><div class="feature-icon">👁️</div><h3>Eye Dropper</h3><p>Lift any colour straight from your screen, where supported.</p></div>
+        <div class="feature-card"><div class="feature-icon">◑</div><h3>Gradient Generator</h3><p>Pair colours into linear or radial gradients with copyable CSS.</p></div>
+        <div class="feature-card"><div class="feature-icon">♥</div><h3>Favourite Colours</h3><p>Save and revisit the colours you use most often.</p></div>
+        <div class="feature-card"><div class="feature-icon">↺</div><h3>Colour History</h3><p>The last 20 colours you picked, always one click away.</p></div>
+        <div class="feature-card"><div class="feature-icon">⬇</div><h3>Download Colour</h3><p>Export any colour as a downloadable PNG swatch.</p></div>
+        <div class="feature-card"><div class="feature-icon">◈</div><h3>Accessibility Check</h3><p>See the contrast ratio and best text colour at a glance.</p></div>
+        <div class="feature-card"><div class="feature-icon">▥</div><h3>Local Storage Support</h3><p>Favourites and history persist between visits, on your device only.</p></div>
+      </div>
+    </div>
+  </section>
+  <!-- HOW IT WORKS -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">How It Works</span>
+        <h2>Four steps to your perfect colour</h2>
+        <p>The Colour Picker is built to get out of your way — pick, copy, and move on.</p>
+      </div>
+      <div class="steps-row reveal">
+        <div class="step-card"><div class="step-num">1</div><h3>Open Colour Picker</h3><p>Load the page — no sign-up, no install, works instantly in your browser.</p></div>
+        <div class="step-card"><div class="step-num">2</div><h3>Select a Colour</h3><p>Use the native picker, sliders, HEX field, or the eyedropper tool.</p></div>
+        <div class="step-card"><div class="step-num">3</div><h3>Copy Values</h3><p>Grab HEX, RGB, HSL or RGBA with a single click of the copy button.</p></div>
+        <div class="step-card"><div class="step-num">4</div><h3>Use Anywhere</h3><p>Paste the value into your code, design tool, or document of choice.</p></div>
+      </div>
+    </div>
+  </section>
+  <!-- ADVANTAGES -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Advantages</span>
+        <h2>Why people keep coming back to this Colour Picker</h2>
+      </div>
+      <div class="grid-3 reveal">
+        <div class="advantage-card"><div class="feature-icon">⚡</div><div><h3>Fast &amp; local</h3><p>Every calculation in the Colour Picker runs in your browser, so there's no waiting on a server.</p></div></div>
+        <div class="advantage-card"><div class="feature-icon">🔒</div><div><h3>Private by design</h3><p>Nothing you pick is uploaded anywhere — the Colour Picker never leaves your device.</p></div></div>
+        <div class="advantage-card"><div class="feature-icon">📱</div><div><h3>Works everywhere</h3><p>Phone, tablet or desktop, the Colour Picker adapts to your screen.</p></div></div>
+        <div class="advantage-card"><div class="feature-icon">♾️</div><div><h3>No limits</h3><p>Pick as many colours as you like — the Colour Picker has no usage caps.</p></div></div>
+        <div class="advantage-card"><div class="feature-icon">🎯</div><div><h3>Accurate conversions</h3><p>HEX, RGB, HSL, HSV and CMYK values are calculated precisely, every time.</p></div></div>
+        <div class="advantage-card"><div class="feature-icon">💾</div><div><h3>Remembers your picks</h3><p>History and favourites are saved locally, ready the next time you open the Colour Picker.</p></div></div>
+      </div>
+    </div>
+  </section>
+  <!-- WHY CHOOSE -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Comparison</span>
+        <h2>Why choose this Colour Picker</h2>
+      </div>
+      <div class="reveal" style="overflow-x:auto;">
+        <table class="compare-table">
+          <thead><tr><th>Capability</th><th>This Colour Picker</th><th>Typical basic tools</th></tr></thead>
+          <tbody>
+            <tr><td>HEX, RGB, HSL, HSV, CMYK output</td><td class="check-yes">✓ Included</td><td class="check-no">Often HEX only</td></tr>
+            <tr><td>Eyedropper screen sampling</td><td class="check-yes">✓ Included</td><td class="check-no">Rarely offered</td></tr>
+            <tr><td>Shades, tints &amp; tones</td><td class="check-yes">✓ Included</td><td class="check-no">Usually missing</td></tr>
+            <tr><td>Gradient generator with CSS</td><td class="check-yes">✓ Included</td><td class="check-no">Usually missing</td></tr>
+            <tr><td>Favourites &amp; history</td><td class="check-yes">✓ Included</td><td class="check-no">Not saved</td></tr>
+            <tr><td>Works offline after load</td><td class="check-yes">✓ Yes</td><td class="check-no">Often server-dependent</td></tr>
+            <tr><td>Sign-up required</td><td class="check-yes">✓ Never</td><td class="check-no">Sometimes required</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  <!-- TESTIMONIALS -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Testimonials</span>
+        <h2>What people say about the Colour Picker</h2>
+      </div>
+      <div class="grid-3 reveal">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">I use this Colour Picker every time I need a quick HEX value for a client site. It's become part of my daily workflow.</p>
+          <div class="testimonial-person"><div class="avatar" style="background:#5B4FE8;">A</div><div><strong>Amelia R.</strong><span>Front-end Developer</span></div></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">The gradient generator inside the Colour Picker saves me from writing CSS gradients by hand every single time.</p>
+          <div class="testimonial-person"><div class="avatar" style="background:#FF5C7A;">D</div><div><strong>Daniyal K.</strong><span>UI Designer</span></div></div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-quote">Simple, fast, and it remembers my favourite colours. Exactly what a Colour Picker should be.</p>
+          <div class="testimonial-person"><div class="avatar" style="background:#0D9C8E;">S</div><div><strong>Sara M.</strong><span>Product Designer</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- STATS -->
+  <section class="section">
+    <div class="container">
+      <div class="stats-strip reveal">
+        <div class="stats-grid">
+          <div><div class="stat-num" data-count-to="482900">0</div><div class="stat-label">Colours picked</div></div>
+          <div><div class="stat-num" data-count-to="63500">0</div><div class="stat-label">Happy users</div></div>
+          <div><div class="stat-num" data-count-to="128400">0</div><div class="stat-label">Saved colours</div></div>
+          <div><div class="stat-num" data-count-to="41200">0</div><div class="stat-label">Generated gradients</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">FAQ</span>
+        <h2>Frequently asked questions</h2>
+        <p>Everything you might want to know before using the Colour Picker.</p>
+      </div>
+      <div class="faq-list reveal">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Is the Colour Picker free to use? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Yes, the Colour Picker is completely free, with no sign-up and no usage limits.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Does the Colour Picker work on mobile devices? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Yes, the Colour Picker is fully responsive and works smoothly on phones, tablets and desktops.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Do I need to install anything to use the Colour Picker? <span class="plus">+</span></button>
+          <div class="faq-a"><p>No installation is needed. The Colour Picker runs entirely in your browser using HTML, CSS and JavaScript.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">What colour formats does the Colour Picker support? <span class="plus">+</span></button>
+          <div class="faq-a"><p>The Colour Picker outputs HEX, RGB, RGBA, HSL, HSV and a CMYK approximation, all updated live.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Can I type a HEX code directly into the Colour Picker? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Yes, the HEX field in the Colour Picker is fully editable and updates the preview as you type.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Does the Colour Picker support an eyedropper tool? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Yes, where your browser supports the EyeDropper API, the Colour Picker lets you sample any colour on your screen.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">What happens if my browser doesn't support the eyedropper? <span class="plus">+</span></button>
+          <div class="faq-a"><p>The Colour Picker shows a friendly message and disables the button, while every other feature keeps working normally.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Can the Colour Picker generate shades, tints and tones? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Yes, the Colour Picker automatically builds nine shades, tints and tones from whichever colour you select.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Does the Colour Picker save my favourite colours? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Yes, favourites are saved with LocalStorage, so the Colour Picker remembers them the next time you visit.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Is my colour history kept anywhere online? <span class="plus">+</span></button>
+          <div class="faq-a"><p>No. The Colour Picker keeps history only in your browser's LocalStorage — nothing is uploaded to a server.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Can I download a colour as an image? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Yes, the Colour Picker can export any selected colour as a downloadable PNG swatch.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Does the Colour Picker check colour contrast? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Yes, the Colour Picker calculates a contrast ratio and recommends black or white text for readability.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Can the Colour Picker build gradients? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Yes, choose a second colour and the Colour Picker generates a linear or radial gradient with copyable CSS.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Is the Colour Picker suitable for print design? <span class="plus">+</span></button>
+          <div class="faq-a"><p>The Colour Picker's CMYK approximation gives a helpful starting point, though final print colours should be checked with your printer.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Do I need an account to use the Colour Picker? <span class="plus">+</span></button>
+          <div class="faq-a"><p>No account is required. The Colour Picker is open and ready to use immediately, for everyone.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Can I use the Colour Picker for both web and app design? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Yes, the Colour Picker's HEX and RGBA output is ready for CSS, while HSL and HSV suit design tools that use hue-based sliders.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="container contact-grid">
+      <div class="reveal">
+        <span class="eyebrow">Contact</span>
+        <h2 style="font-family:var(--font-display);font-size:clamp(1.8rem,3vw,2.4rem);font-weight:600;margin-top:14px;">Questions about the Colour Picker?</h2>
+        <form class="contact-form" id="contact-form" novalidate>
+          <div class="form-field">
+            <label for="field-name">Name</label>
+            <input type="text" id="field-name" name="name" required>
+            <span class="form-error" id="error-name"></span>
+          </div>
+          <div class="form-field">
+            <label for="field-email">Email</label>
+            <input type="email" id="field-email" name="email" required>
+            <span class="form-error" id="error-email"></span>
+          </div>
+          <div class="form-field">
+            <label for="field-message">Message</label>
+            <textarea id="field-message" name="message" required></textarea>
+            <span class="form-error" id="error-message"></span>
+          </div>
+          <div class="form-success" id="form-success"></div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+      <div class="contact-info reveal">
+        <div class="contact-info-row"><div class="feature-icon">✉</div><div><h3 style="font-family:var(--font-display);font-weight:600;margin-bottom:4px;">Email</h3><p style="color:var(--ink-soft);">hello@colourpicker.example</p></div></div>
+        <div class="contact-info-row"><div class="feature-icon">◎</div><div><h3 style="font-family:var(--font-display);font-weight:600;margin-bottom:4px;">Response time</h3><p style="color:var(--ink-soft);">We usually reply within one business day.</p></div></div>
+        <div>
+          <h3 style="font-family:var(--font-display);font-weight:600;margin-bottom:8px;">Follow along</h3>
+          <div class="social-icons">
+            <a href="#" aria-label="Twitter / X">𝕏</a>
+            <a href="#" aria-label="Instagram">◍</a>
+            <a href="#" aria-label="GitHub">⌥</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- CTA -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-band reveal">
+        <h2>Ready to try the Colour Picker?</h2>
+        <p>Pick, preview and copy your next colour in seconds — no sign-up, no cost.</p>
+        <a href="#tool" class="btn btn-primary">Use Colour Picker</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a href="index.html" class="footer-logo"><span class="logo-mark" aria-hidden="true"></span>Colour Picker</a>
+        <p class="footer-desc">A free, fast, and private online Colour Picker for picking, converting and copying colours — right in your browser.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html#top">Home</a></li>
+          <li><a href="index.html#tool">Colour Picker</a></li>
+          <li><a href="index.html#features">Features</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-and-conditions.html">Terms and Conditions</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+          <li><a href="cookie-policy.html">Cookie Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="mailto:hello@colourpicker.example">hello@colourpicker.example</a></li>
+        </ul>
+        <div class="social-icons" style="margin-top:14px;">
+          <a href="#" aria-label="Twitter / X">𝕏</a>
+          <a href="#" aria-label="Instagram">◍</a>
+          <a href="#" aria-label="GitHub">⌥</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Colour Picker. All rights reserved.</span>
+      <span>Made with HTML, CSS &amp; JavaScript.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"><span class="toast-dot"></span><span class="toast-msg">Copied</span></div>
+
+<div class="fullscreen-preview" id="fullscreen-preview">
+  <button class="fp-close" id="fp-close" aria-label="Close fullscreen preview">✕</button>
+  <div class="fp-code" id="fp-code">#5B4FE8</div>
+</div>
+
+<button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+
+<script src="script.js?v=2"></script>
+</body>
+</html>
